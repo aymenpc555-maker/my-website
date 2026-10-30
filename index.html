@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08090d">
+<title>CHARGER | The Legend</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --red:#e52b35;
+  --blue:#168cff;
+  --bg:#08090d;
+  --muted:#a4a5ad;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:#fff;font-family:Montserrat,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+header{
+ position:absolute;top:0;left:0;width:100%;z-index:10;
+ display:flex;align-items:center;justify-content:space-between;
+ padding:25px 7%;border-bottom:1px solid #ffffff18;
+}
+.logo{font-family:'Barlow Condensed';font-size:30px;font-weight:900;letter-spacing:3px}
+.logo span{color:var(--red)}
+nav{display:flex;gap:30px}
+nav a{font-size:11px;letter-spacing:2px;color:#ddd;transition:.3s}
+nav a:hover{color:var(--red)}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{
+ min-height:100vh;position:relative;display:flex;align-items:center;
+ padding:140px 9% 80px;overflow:hidden;
+ background:
+ linear-gradient(90deg,#08090df5 0%,#08090dbb 48%,#08090d30 100%),
+ linear-gradient(0deg,#08090d 0%,transparent 35%),
+ url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=90') center/cover;
+}
+.hero:after{
+ content:"";position:absolute;right:0;top:20%;width:3px;height:55%;
+ background:var(--red);box-shadow:0 0 25px var(--red);
+}
+.hero-content{position:relative;z-index:2;max-width:650px}
+.eyebrow{color:var(--red);font-size:11px;letter-spacing:5px;font-weight:700;margin-bottom:22px}
+h1{font-family:'Barlow Condensed';font-size:clamp(75px,13vw,155px);line-height:.78;font-weight:900;letter-spacing:-3px}
+h1 span{display:block;color:transparent;-webkit-text-stroke:1px #fff}
+.hero p{color:#c1c1c8;line-height:1.8;font-size:13px;max-width:430px;margin:30px 0}
+.actions{display:flex;gap:15px;flex-wrap:wrap}
+.btn{padding:16px 25px;font-size:10px;letter-spacing:2px;font-weight:800;border:1px solid var(--red);background:var(--red);color:white;transition:.3s}
+.btn:hover{background:transparent;transform:translateY(-3px)}
+.btn.outline{background:transparent;border-color:#ffffff60}
+.btn.outline:hover{border-color:var(--blue);color:var(--blue)}
+.hero-number{position:absolute;right:8%;bottom:12%;font-family:'Barlow Condensed';font-size:100px;color:#ffffff18;font-weight:900}
+section{padding:110px 9%}
+.section-label{color:var(--red);font-size:10px;letter-spacing:5px;font-weight:700;margin-bottom:15px}
+.section-title{font-family:'Barlow Condensed';font-size:clamp(45px,7vw,78px);line-height:.95;text-transform:uppercase;margin-bottom:25px}
+.section-title span{color:var(--red)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-image{
+ min-height:420px;background:
+ linear-gradient(0deg,#08090d55,#08090d10),
+ url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85') center/cover;
+ border:1px solid #ffffff20;position:relative;
+}
+.about-image:before{content:"1970";position:absolute;bottom:-25px;left:-20px;font-family:'Barlow Condensed';font-size:90px;font-weight:900;color:var(--red)}
+.about-text p{color:var(--muted);font-size:13px;line-height:2;margin-bottom:25px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:35px}
+.stat{border-left:2px solid var(--red);padding-left:12px}
+.stat strong{font-family:'Barlow Condensed';font-size:35px;display:block}
+.stat small{font-size:9px;letter-spacing:1px;color:var(--muted)}
+.specs{background:#0d0f15}
+.spec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:45px}
+.spec{padding:30px 20px;border:1px solid #ffffff18;background:#ffffff05;transition:.3s}
+.spec:hover{border-color:var(--red);transform:translateY(-5px)}
+.spec small{color:var(--red);letter-spacing:2px;font-size:9px}
+.spec h3{font-family:'Barlow Condensed';font-size:30px;margin:12px 0 5px}
+.spec p{font-size:10px;color:var(--muted)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:40px}
+.gallery-item{height:230px;position:relative;overflow:hidden;background:#151820}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:.6s;filter:brightness(.75)}
+.gallery-item:hover img{transform:scale(1.08);filter:brightness(1)}
+.gallery-item span{position:absolute;bottom:18px;left:18px;font-family:'Barlow Condensed';font-size:25px;font-weight:700;letter-spacing:2px}
+.story{background:linear-gradient(90deg,#08090df2,#08090d80),url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1800&q=85') center/cover fixed}
+.story p{max-width:600px;color:#c2c2c8;line-height:2;font-size:13px}
+.story .section-title{max-width:600px}
+.cta{text-align:center;background:radial-gradient(ellipse at center,#15253a 0%,#08090d 65%)}
+.cta p{color:var(--muted);font-size:13px;margin:15px auto 30px;max-width:450px;line-height:1.8}
+footer{padding:30px 9%;border-top:1px solid #ffffff18;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#777;font-size:10px;letter-spacing:1px}
+footer b{color:var(--red)}
+@media(max-width:750px){
+ header{padding:20px 6%}
+ nav{display:none;position:absolute;top:75px;left:0;width:100%;background:#0b0c12;padding:25px;flex-direction:column;gap:22px}
+ nav.open{display:flex}
+ .menu{display:block}
+ .hero{padding:130px 7% 100px;background-position:60% center}
+ .hero-number{font-size:65px;right:7%;bottom:6%}
+ section{padding:75px 7%}
+ .about{grid-template-columns:1fr;gap:45px}
+ .about-image{min-height:300px}
+ .spec-grid{grid-template-columns:repeat(2,1fr)}
+ .gallery-grid{grid-template-columns:repeat(2,1fr)}
+ .gallery-item{height:170px}
+ .story{background-attachment:scroll}
+}
+@media(max-width:380px){
+ .gallery-grid{grid-template-columns:1fr}
+ .stats{gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <a class="logo" href="#">CHARGER<span>.</span></a>
+ <nav id="nav">
+  <a href="#home">HOME</a>
+  <a href="#about">THE CAR</a>
+  <a href="#specs">SPECS</a>
+  <a href="#gallery">GALLERY</a>
+  <a href="#story">STORY</a>
+ </nav>
+ <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="hero-content">
+  <div class="eyebrow">AMERICAN MUSCLE • EST. 1970</div>
+  <h1>DODGE <span>CHARGER</span></h1>
+  <p>Born to dominate. Built to leave a legend behind. Discover the timeless power of the 1970 Dodge Charger R/T.</p>
+  <div class="actions">
+   <a class="btn" href="#about">DISCOVER THE LEGEND ↗</a>
+   <a class="btn outline" href="#gallery">EXPLORE GALLERY</a>
+  </div>
+ </div>
+ <div class="hero-number">1970</div>
+</section>
+
+<section class="about" id="about">
+ <div class="about-image"></div>
+ <div class="about-text">
+  <div class="section-label">THE LEGEND RETURNS</div>
+  <h2 class="section-title">MORE THAN<br>A <span>MACHINE.</span></h2>
+  <p>The 1970 Dodge Charger R/T is an icon of American muscle. Its aggressive design, unmistakable presence and legendary V8 spirit made it one of the most unforgettable cars ever built.</p>
+  <p>A machine created for those who believe that driving should be an experience, not just a journey.</p>
+  <div class="stats">
+   <div class="stat"><strong>1970</strong><small>MODEL YEAR</small></div>
+   <div class="stat"><strong>V8</strong><small>ENGINE SPIRIT</small></div>
+   <div class="stat"><strong>R/T</strong><small>ROAD / TRACK</small></div>
+  </div>
+ </div>
+</section>
+
+<section class="specs" id="specs">
+ <div class="section-label">BUILT DIFFERENT</div>
+ <h2 class="section-title">THE <span>POWER</span> WITHIN</h2>
+ <div class="spec-grid">
+  <div class="spec"><small>ENGINE</small><h3>V8 HEMI</h3><p>Legendary muscle power</p></div>
+  <div class="spec"><small>BODY</small><h3>COUPE</h3><p>Classic American design</p></div>
+  <div class="spec"><small>DRIVE</small><h3>RWD</h3><p>Rear wheel drive</p></div>
+  <div class="spec"><small>CLASS</small><h3>MUSCLE</h3><p>American performance</p></div>
+ </div>
+</section>
+
+<section id="gallery">
+ <div class="section-label">VISUAL EXPERIENCE</div>
+ <h2 class="section-title">THE <span>GALLERY</span></h2>
+ <div class="gallery-grid">
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=800&q=85" alt="Car exterior"><span>EXTERIOR</span></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=85" alt="Car design"><span>DESIGN</span></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?auto=format&fit=crop&w=800&q=85" alt="Classic car"><span>DETAILS</span></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=85" alt="Car front"><span>FRONT</span></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=800&q=85" alt="Car road"><span>ON ROAD</span></div>
+  <div class="gallery-item"><img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=85" alt="Car rear"><span>THE LEGEND</span></div>
+ </div>
+</section>
+
+<section class="story" id="story">
+ <div class="section-label">THE STORY</div>
+ <h2 class="section-title">A LEGEND<br>NEVER <span>ENDS.</span></h2>
+ <p>Some cars are remembered. Others become legends. The Charger belongs to the second category. A symbol of freedom, power and the golden age of American muscle cars.</p>
+</section>
+
+<section class="cta">
+ <div class="section-label">FEEL THE LEGEND</div>
+ <h2 class="section-title">WELCOME TO THE<br><span>WORLD OF CHARGER.</span></h2>
+ <p>One machine. Endless attitude. An icon that never fades.</p>
+ <a href="#home" class="btn">BACK TO TOP ↑</a>
+</section>
+</main>
+
+<footer>
+ <div>© 2026 <b>CHARGER.</b> THE LEGEND LIVES ON.</div>
+ <div>BUILT FOR THE LOVE OF MUSCLE CARS</div>
+</footer>
+
+</body>
+</html>
